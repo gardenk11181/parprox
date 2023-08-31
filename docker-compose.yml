@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  jupyter:
+    image: parprox:1.0
+    working_dir: /home/garden/Documents/parprox
+    volumes: 
+      - /home/garden/Documents/parprox/:/home/garden/Documents/parprox/
+    runtime: nvidia
+    shm_size: 32gb
+    ports: 
+      - '8000:8080'
+    command: >
+      jupyter notebook --ip 0.0.0.0 --no-browser --port 8080 --allow-root
+      --notebook-dir=/home/garden/Documents/parprox
